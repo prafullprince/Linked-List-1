@@ -71,14 +71,31 @@ Node* insertAtHead(int value,Node* &head,Node* &tail){
   return head;
 }
 
+// insertAtTail
+Node* insertAtTail(int value,Node* &head,Node* &tail){
+  if(head == NULL && tail == NULL){
+    Node* newNode = new Node(value);
+    head = newNode;
+    tail = newNode;
+  }
+  else{
+    Node* newNode = new Node(value);
+    tail->next = newNode;
+    tail = newNode;
+  }
+  return head;
+}
+
 int main() {
   Node* head = NULL;
   Node* tail = NULL;
 
   insertAtHead(10,head,tail);
   insertAtHead(20,head,tail);
-
+  insertAtTail(50,head,tail);
+  insertAtTail(60,head,tail);
   print(head);
+  
   
   
 }
