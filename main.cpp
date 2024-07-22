@@ -86,6 +86,41 @@ Node* insertAtTail(int value,Node* &head,Node* &tail){
   return head;
 }
 
+// to find length
+int getLength(Node* &head){
+  Node* temp = head;
+  int len = 0;
+  while(temp != NULL){
+    temp = temp->next;
+    len++;
+  }
+  return len;
+}
+
+// insertAtAnyPos
+Node* insertAtAnyPos(int position,int value,Node* &head,Node* &tail){
+  int length = getLength(head);
+
+  if(position == 1){
+    insertAtHead(value, head, tail);
+  }
+  else if (position == length+1){
+    insertAtTail(value,head,tail);
+  }
+  else{
+    Node* temp = head;
+    for(int i=0;i<position-2;i++){
+      temp = temp->next;
+    }
+    // make new node
+    Node* newNode = new Node(value);
+    newNode->next = temp->next;
+    temp->next = newNode;
+  }
+  return head;
+}
+
+
 int main() {
   Node* head = NULL;
   Node* tail = NULL;
@@ -94,6 +129,8 @@ int main() {
   insertAtHead(20,head,tail);
   insertAtTail(50,head,tail);
   insertAtTail(60,head,tail);
+  print(head);
+  insertAtAnyPos(3, 65, head, tail);
   print(head);
   
   
