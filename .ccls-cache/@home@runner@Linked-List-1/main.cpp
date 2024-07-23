@@ -1,32 +1,24 @@
 #include <iostream>
 using namespace std;
 
-//   cout<< "Hello World";
-
-//   1 ) Linked list node creation
-
+// 1 ) Linked list node creation
 
 
 // class Node{
 //   public:
 //     int data;
 //     Node* next;
-
 //     Node(int value){
 //       this->data = value;
 //       this->next = NULL;
 //     }
 // };
-
 // int main() {
 //   Node* first = new Node(10);
-
 // }
 
 
-
-
-//     2 ) insertion
+// 2 ) insertion > searching > deletion in singly ll
 
 
 class Node{
@@ -40,7 +32,7 @@ class Node{
     }
 };
 
-// print function for ll
+//               print function for ll
 void print(Node* head){
   Node* temp = head;
   while(temp!=NULL){
@@ -50,7 +42,7 @@ void print(Node* head){
   cout<<"NULL"<<endl;
 }
 
-// insert at head in ll
+//               insert at head in ll
 Node* insertAtHead(int value,Node* &head,Node* &tail){
   // ll is empty
   if(head == NULL && tail == NULL){
@@ -71,7 +63,7 @@ Node* insertAtHead(int value,Node* &head,Node* &tail){
   return head;
 }
 
-// insertAtTail
+//               insertAtTail
 Node* insertAtTail(int value,Node* &head,Node* &tail){
   if(head == NULL && tail == NULL){
     Node* newNode = new Node(value);
@@ -86,7 +78,7 @@ Node* insertAtTail(int value,Node* &head,Node* &tail){
   return head;
 }
 
-// to find length
+//               to find length
 int getLength(Node* &head){
   Node* temp = head;
   int len = 0;
@@ -97,7 +89,7 @@ int getLength(Node* &head){
   return len;
 }
 
-// insertAtAnyPos
+//               insertAtAnyPos
 Node* insertAtAnyPos(int position,int value,Node* &head,Node* &tail){
   int length = getLength(head);
 
@@ -135,13 +127,61 @@ void searching(int target,Node* &head,Node* &tail){
   cout<<"target is not found in ll"<<endl;
 }
 
+// deletion at head
+Node* deleteAtHead(Node* &head,Node* &tail){
+  Node* temp = head;
+  if(head == NULL && tail == NULL){
+    cout<<"Deletion is not possible on empty ll"<<endl;
+  }
+  else{
+    head = temp->next;
+    temp->next = NULL;
+  }
+  return head;
+}
 
+// delete at tail
+Node* deleteAtTail(Node* &head,Node* &tail){
+  Node* temp = head;
+  int len = getLength(head);
+  if(head == NULL && tail == NULL){
+    cout<<"Deletion is not possible on empty ll"<<endl;
+  }
+  else{
+    for(int i=0;i<len-2;i++){
+      temp = temp->next;
+    }
+    temp->next = NULL;
+    tail = temp;
+  }
+  return head;
+}
 
+// delete at any position
+Node* deleteAtAnyPos(int pos,Node* &head,Node* &tail){
+  int len = getLength(head);
+  Node* temp = head;
+  if(pos==1){
+    deleteAtHead(head, tail);
+  }
+  else if (pos == len){
+    deleteAtTail(head,tail);
+  }
+  else{
+    for(int i=0;i<pos-2;i++){
+      temp = temp->next;
+    }
+    temp->next = temp->next->next;
+  }
+  return head;
+}
+
+// main function
 int main() {
   Node* head = NULL;
   Node* tail = NULL;
-  
 
+  //           making ll using insertion
   insertAtHead(10,head,tail);
   insertAtHead(20,head,tail);
   insertAtTail(50,head,tail);
@@ -149,8 +189,17 @@ int main() {
   print(head);
   insertAtAnyPos(3, 65, head, tail);
   print(head);
-  searching(75, head, tail);
-  
+
+  //               searching
+  // searching(75, head, tail);
+
+  //               deletion
+  // deleteAtHead(head,tail);
+  // print(head);
+  // deleteAtTail(head,tail);
+  // print(head);
+  // deleteAtAnyPos(3, head, tail);
+  // print(head);
   
   
 }
