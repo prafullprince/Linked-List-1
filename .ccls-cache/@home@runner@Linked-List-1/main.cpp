@@ -120,10 +120,27 @@ Node* insertAtAnyPos(int position,int value,Node* &head,Node* &tail){
   return head;
 }
 
+//             serching in linked list
+void searching(int target,Node* &head,Node* &tail){
+  Node* temp = head;
+  while(temp!=NULL){
+    if(temp->data==target){
+      cout<<"target is found in ll"<<endl;
+      return;
+    }
+    else{
+      temp = temp->next;
+    }
+  }
+  cout<<"target is not found in ll"<<endl;
+}
+
+
 
 int main() {
   Node* head = NULL;
   Node* tail = NULL;
+  
 
   insertAtHead(10,head,tail);
   insertAtHead(20,head,tail);
@@ -132,6 +149,7 @@ int main() {
   print(head);
   insertAtAnyPos(3, 65, head, tail);
   print(head);
+  searching(75, head, tail);
   
   
   
