@@ -127,7 +127,7 @@ using namespace std;
 //   cout<<"target is not found in ll"<<endl;
 // }
 
-// // deletion at head
+//                deletion at head
 // Node* deleteAtHead(Node* &head,Node* &tail){
 //   Node* temp = head;
 //   if(head == NULL && tail == NULL){
@@ -140,7 +140,7 @@ using namespace std;
 //   return head;
 // }
 
-// delete at tail
+//                delete at tail
 // Node* deleteAtTail(Node* &head,Node* &tail){
 //   Node* temp = head;
 //   int len = getLength(head);
@@ -157,7 +157,7 @@ using namespace std;
 //   return head;
 // }
 
-// delete at any position
+//             delete at any position
 // Node* deleteAtAnyPos(int pos,Node* &head,Node* &tail){
 //   int len = getLength(head);
 //   Node* temp = head;
@@ -298,6 +298,10 @@ Node* insertAtAnyPos(int value,int pos,Node* &head,Node* &tail){
   }
   return head;
 }
+
+// TODO:Deltion
+
+// circular linked list
 
 // main function
 int main(){
