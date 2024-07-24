@@ -262,6 +262,43 @@ void reverse(Node* tail){
 
 // insertion at tail -> think
 
+// find length
+int getLength(Node* &head){
+  Node* temp = head;
+  int len = 0;
+  while(temp != NULL){
+    temp = temp->next;
+    len++;
+  }
+  return len;
+}
+
+// insert at any pos
+Node* insertAtAnyPos(int value,int pos,Node* &head,Node* &tail){
+  // int len = getLength(head);
+  if(pos == 1){
+    insertAtHead(value,head,tail);
+  }
+  // elseif(pos == len+1){
+    
+  // }
+  else{
+    Node* temp = head;
+    for(int i=0;i<pos-2;i++){
+      temp = temp->next;
+    }
+    // create newnode
+    Node* newNode = new Node(value);
+    Node* forward = temp->next;
+    temp->next = newNode;
+    newNode->prev = temp;
+    newNode->next = forward;
+    forward->prev = newNode;
+    newNode->prev = temp;
+  }
+  return head;
+}
+
 // main function
 int main(){
   Node* head = NULL;
@@ -272,6 +309,8 @@ int main(){
   insertAtHead(30,head,tail);
   insertAtHead(40,head,tail);
   print(head);
-  reverse(tail);
+  // reverse(tail);
+  insertAtAnyPos(65,3,head,tail);
+  print(head);
   
 }
