@@ -318,3 +318,74 @@ int main(){
   print(head);
   
 }
+
+
+
+
+
+
+// reverse singly ll
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+// class Solution {
+// public:
+//     int getLength(ListNode* &head){
+//         ListNode* temp = head;
+//         int len = 0;
+//         while(temp!=NULL){
+//             len = len+1;
+//             temp = temp->next;
+//         }
+//         return len;
+//     }
+
+//     ListNode* reverseList(ListNode* &prev,ListNode* &curr,int length){
+
+        // by recursion
+
+        // base case
+        // if(curr == NULL){
+        //     return prev;
+        // }
+        // ListNode* forward = curr->next;
+        // curr->next = prev;
+        // return reverseList(curr,forward);
+
+        // by for loop
+
+        // for(int i=0;i<length;i++){
+        //     ListNode* forward = curr->next;
+        //     curr->next = prev;
+        //     prev = curr;
+        //     curr = forward;
+        // }
+
+        // by while loop
+//         while(curr!=NULL){
+//             ListNode* forward = curr->next;
+//             curr->next = prev;
+//             prev = curr;
+//             curr = forward;
+//         }
+//         return prev;
+//     }
+
+//     ListNode* reverseList(ListNode* head) {
+//         ListNode* prev = NULL;
+//         ListNode* curr = head;
+//         int length = getLength(head);
+
+
+//         ListNode* newHead = reverseList(prev,curr,length);
+//         return newHead;
+//     }
+// };
