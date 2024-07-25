@@ -1,24 +1,13 @@
 #include <iostream>
 using namespace std;
 
-// // 1 ) Linked list node creation
 
 
-// // class Node{
-// //   public:
-// //     int data;
-// //     Node* next;
-// //     Node(int value){
-// //       this->data = value;
-// //       this->next = NULL;
-// //     }
-// // };
-// // int main() {
-// //   Node* first = new Node(10);
-// // }
+//                     Singly Linked list
 
 
-// // 2 ) insertion > searching > deletion in singly ll
+
+
 
 
 // class Node{
@@ -210,14 +199,11 @@ using namespace std;
 
 
 
+//                       Doubly Linked-list
 
 
 
 
-
-
-
-//   2 )  Doubly Linked-list
 
 // class Node{
 //   public:
@@ -232,7 +218,8 @@ using namespace std;
 //   }
 // };
 
-// // print for ll
+//                     // print for ll
+
 // void print(Node* head){
 //   Node* temp = head;
 //   while(temp!=NULL){
@@ -243,7 +230,8 @@ using namespace std;
 //   cout<<"NULL"<<endl;
 // }
 
-// // insertion at head
+//                    // insertion at head
+
 // Node* insertAtHead(int value,Node* &head,Node* &tail){
 //   Node* temp = head;
 //   if(head == NULL && tail == NULL){
@@ -260,7 +248,8 @@ using namespace std;
 //   return head;
 // }
 
-// // reverse ll
+//                       // reverse ll
+
 // void reverse(Node* tail){
 //   Node* temp = tail;
 //   while(temp!=NULL){
@@ -270,9 +259,10 @@ using namespace std;
 //   cout<<"NULL"<<endl;
 // }
 
-// // insertion at tail -> think
+//                      // insertion at tail -> think
 
-// // find length
+//                         // find length
+
 // int getLength(Node* &head){
 //   Node* temp = head;
 //   int len = 0;
@@ -283,7 +273,8 @@ using namespace std;
 //   return len;
 // }
 
-// // insert at any pos
+//                       // insert at any pos
+
 // Node* insertAtAnyPos(int value,int pos,Node* &head,Node* &tail){
 //   // int len = getLength(head);
 //   if(pos == 1){
@@ -308,12 +299,10 @@ using namespace std;
 //   }
 //   return head;
 // }
+//                       // TODO:Deltion
+//                       // circular linked list
 
-// // TODO:Deltion
-
-// // circular linked list
-
-// // main function
+// main function
 // int main(){
 //   Node* head = NULL;
 //   Node* tail = NULL;
@@ -334,7 +323,9 @@ using namespace std;
 
 
 
-//                     reverse singly ll
+//                      reverse singly ll
+
+
 
 //     ListNode* reverseList(ListNode* &prev,ListNode* &curr){
 //         by recursion
@@ -366,62 +357,60 @@ using namespace std;
 
 
 
-
-
-
-
 //                   Linked list palindrome
 
-    ListNode* getMiddle(ListNode* &head,ListNode* &prevNode){
-        ListNode* slow = head; 
-        ListNode* fast = head;
-        while(fast!=NULL){
-            fast=fast->next;
-            if(fast!=NULL){
-                fast=fast->next;
-                prevNode = slow;
-                slow=slow->next;
-            }
-        }
-        return slow;
-    }
-    ListNode* reverseList(ListNode* &prev, ListNode* &curr){
-        while(curr!=NULL){
-            ListNode* forward = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = forward;
-        }
-        return prev;
-    }
-    bool isPalindrome(ListNode* head) {
-        if(head == NULL){
-            return true;
-        }
-        if(head->next == NULL){
-            return true;
-        }
-        ListNode* firstHalf = head;
-        ListNode* prevNode = NULL;
-        ListNode* middleNode = getMiddle(head,prevNode);
-        // break ll
-        prevNode->next = NULL;
-        // reverse second part
-        ListNode* prev = NULL;
-        ListNode* curr = middleNode;
-        ListNode* secondHalf = reverseList(prev,curr);
-        // compare
-        ListNode* temphead1 = firstHalf;
-        ListNode* temphead2 = secondHalf;
-        while(temphead1!=NULL){
-            if(temphead1->val!=temphead2->val){
-                return false;
-            }
-            else{
-                temphead1 = temphead1->next;
-                temphead2 = temphead2->next;
-            }
-        }
-        return true;
-    }
-};
+
+
+//     ListNode* getMiddle(ListNode* &head,ListNode* &prevNode){
+//         ListNode* slow = head; 
+//         ListNode* fast = head;
+//         while(fast!=NULL){
+//             fast=fast->next;
+//             if(fast!=NULL){
+//                 fast=fast->next;
+//                 prevNode = slow;
+//                 slow=slow->next;
+//             }
+//         }
+//         return slow;
+//     }
+//     ListNode* reverseList(ListNode* &prev, ListNode* &curr){
+//         while(curr!=NULL){
+//             ListNode* forward = curr->next;
+//             curr->next = prev;
+//             prev = curr;
+//             curr = forward;
+//         }
+//         return prev;
+//     }
+//     bool isPalindrome(ListNode* head) {
+//         if(head == NULL){
+//             return true;
+//         }
+//         if(head->next == NULL){
+//             return true;
+//         }
+//         ListNode* firstHalf = head;
+//         ListNode* prevNode = NULL;
+//         ListNode* middleNode = getMiddle(head,prevNode);
+//         // break ll
+//         prevNode->next = NULL;
+//         // reverse second part
+//         ListNode* prev = NULL;
+//         ListNode* curr = middleNode;
+//         ListNode* secondHalf = reverseList(prev,curr);
+//         // compare
+//         ListNode* temphead1 = firstHalf;
+//         ListNode* temphead2 = secondHalf;
+//         while(temphead1!=NULL){
+//             if(temphead1->val!=temphead2->val){
+//                 return false;
+//             }
+//             else{
+//                 temphead1 = temphead1->next;
+//                 temphead2 = temphead2->next;
+//             }
+//         }
+//         return true;
+//     }
+// };
